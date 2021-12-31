@@ -1,6 +1,6 @@
 package topology;
 
-public class ResistorNetlist {
+public class ResistorNetlist extends Netlist {
     String t1;
     String t2;
 }
