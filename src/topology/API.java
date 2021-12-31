@@ -14,11 +14,11 @@ import java.util.Scanner;
 public class API {
     private final ArrayList<Topology> topologylist;
 
-    API(){
-        topologylist = new ArrayList();
+    public API(){
+        topologylist = new ArrayList<>();
     }
 
-    public void readJSON(String filename) {
+    public boolean readJSON(String filename) {
         File file = new File(filename);
         try {
             Scanner scan = new Scanner(file);
@@ -28,8 +28,9 @@ public class API {
             }
             topologylist.add(deserialize(fileContent));
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            return false;
         }
+        return true;
     }
     public void writeJSON(String id,String filename) throws IOException {
         Topology topology = findTopology(id);
@@ -64,12 +65,10 @@ public class API {
     }
     private static Topology deserialize(String fileContent) {
         Gson gson =new GsonBuilder().registerTypeAdapter(Component.class, new PolymorphDeserializer<Component>()).create();
-        Topology result = gson.fromJson(fileContent, Topology.class);
-        return result;
+        return gson.fromJson(fileContent, Topology.class);
     }
     private static String serialize(Topology topology){
         Gson gson = new Gson();
-        String topologySTR = gson.toJson(topology);
-        return topologySTR;
+        return gson.toJson(topology);
     }
 }
