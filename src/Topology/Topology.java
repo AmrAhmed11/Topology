@@ -1,12 +1,13 @@
 package Topology;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Topology {
     private String id;
-    private List<Component> components;
+    private ArrayList<Component> components;
 
-    Topology(String id, List<Component> comps) {
+    Topology(String id, ArrayList<Component> comps) {
         this.id=id;
         components = comps;
     }
@@ -16,10 +17,10 @@ public class Topology {
     public String getId(){
         return id;
     }
-    public void setComponents(List<Component> comps){
+    public void setComponents(ArrayList<Component> comps){
         components=comps;
     }
-    public List<Component> getComponents(){
+    public ArrayList<Component> getComponents(){
         return components;
     }
     public void addComponent(Component comp){

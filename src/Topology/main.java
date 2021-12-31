@@ -1,44 +1,26 @@
 package Topology;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Scanner;
-
-import Topology.adapters.PolymorphDeserializer;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
+import java.util.ArrayList;
 
 public class main {
-
+    ArrayList<Topology> topologyList;
     public static void main(String[] args) throws IOException {
-        Topology topo =deserialize();
-        serialize(topo);
-        Specifications specs =new Specifications(1,2,3);
-    }
-    private static Topology deserialize() throws FileNotFoundException {
-        File file = new File("topology.json");
-        Scanner scan = new Scanner(file);
-        String fileContent ="";
-        while(scan.hasNextLine()){
-            fileContent = fileContent.concat(scan.nextLine()+"\n");
-        }
-        Gson gson =new GsonBuilder().registerTypeAdapter(Component.class, new PolymorphDeserializer<Component>()).create();
-
-        Topology topolo = gson.fromJson(fileContent, Topology.class);
-        return topolo;
-    }
-
-    private static void serialize(Topology topo) throws IOException {
-
-        Gson gson = new Gson();
-        String topoloSTR = gson.toJson(topo);
-        File file = new File("serialized.json");
-        file.createNewFile();
-        FileWriter Writer = new FileWriter("serialized.json");
-        Writer.write(topoloSTR);
-        Writer.close();
-
+        API api = new API();
+        api.readJSON("topology.json");
+        api.readJSON("topology1.json");
+        api.readJSON("topology2.json");
+        api.readJSON("topology3.json");
+        api.writeJSON("top","top.json");
+        api.writeJSON("top1","top1.json");
+        api.writeJSON("top2","top2.json");
+        api.writeJSON("top3","top3.json");
+        ArrayList<Topology> topologies = api.queryTopologies();
+        api.deleteTopology("top2");
+        topologies = api.queryTopologies();
+        ArrayList<Component> Devices = api.queryDevices("top3");
+        api.deleteTopology("top3");
+        api.deleteTopology("top");
+        api.deleteTopology("top1");
     }
 }
