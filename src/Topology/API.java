@@ -9,7 +9,6 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class API {
@@ -41,7 +40,7 @@ public class API {
         Writer.write(topologySTR);
         Writer.close();
     }
-    private Topology findTopology(String id) {
+    public Topology findTopology(String id) {
         for (Topology topology:topologylist) {
             if(topology.getId().equals(id)){
                 return topology;
@@ -63,12 +62,12 @@ public class API {
     public ArrayList<Topology> queryTopologies(){
         return topologylist;
     }
-    public static Topology deserialize(String fileContent) {
+    private static Topology deserialize(String fileContent) {
         Gson gson =new GsonBuilder().registerTypeAdapter(Component.class, new PolymorphDeserializer<Component>()).create();
         Topology result = gson.fromJson(fileContent, Topology.class);
         return result;
     }
-    public static String serialize(Topology topology) throws IOException {
+    private static String serialize(Topology topology){
         Gson gson = new Gson();
         String topologySTR = gson.toJson(topology);
         return topologySTR;
