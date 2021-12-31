@@ -19,15 +19,18 @@ public class API {
         topologylist = new ArrayList();
     }
 
-    public void readJSON(String filename) throws FileNotFoundException {
+    public void readJSON(String filename) {
         File file = new File(filename);
-        Scanner scan = new Scanner(file);
-        String fileContent ="";
-        while(scan.hasNextLine()){
-            fileContent = fileContent.concat(scan.nextLine()+"\n");
+        try {
+            Scanner scan = new Scanner(file);
+            String fileContent ="";
+            while(scan.hasNextLine()){
+                fileContent = fileContent.concat(scan.nextLine()+"\n");
+            }
+            topologylist.add(deserialize(fileContent));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
         }
-        topologylist.add(deserialize(fileContent));
-
     }
     public void writeJSON(String id,String filename) throws IOException {
         Topology topology = findTopology(id);
@@ -52,6 +55,9 @@ public class API {
     }
     public ArrayList<Component> queryDevices(String id){
         Topology topology = findTopology(id);
+        if(topology == null){
+            return null;
+        }
         return topology.getComponents();
     }
     public ArrayList<Topology> queryTopologies(){
