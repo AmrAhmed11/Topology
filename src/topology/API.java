@@ -3,7 +3,6 @@ package topology;
 import topology.adapters.PolymorphDeserializer;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
@@ -145,4 +144,3 @@ public class API {
         return gson.toJson(topology);
     }
 }
-//https://amrahmed11.github.io/Topology/JavaDoc/topology/package-summary.html
