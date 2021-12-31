@@ -16,10 +16,11 @@ I chose Java because:
 ## Code analysis
 
 Used intellij inspect code to check for:
-  * Styling warnings
-  * Syntax warnings
-  * Declaration warnings
-  * Structure warnings
+ 1. Styling warnings
+ 2. Syntax warnings
+ 3. Declaration warnings
+ 4. Structure warnings
+
 
 ---
 
