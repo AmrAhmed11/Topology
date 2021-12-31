@@ -1,9 +1,11 @@
 # Topology
+
 Simple project to access, manage and store topologies with simple functionality
 
 ---
 
 ## Programming language (Java)
+
 I chose Java because:
   * Java is easy to learn
   * Java is object-oriented
@@ -12,6 +14,7 @@ I chose Java because:
 ---
 
 ## Code analysis
+
 Used intellij inspect code to check for:
   * Styling warnings
   * Syntax warnings
@@ -21,4 +24,5 @@ Used intellij inspect code to check for:
 ---
 
 ## Unit testing
+
 ![unit testing](imgs/unittest.png)
