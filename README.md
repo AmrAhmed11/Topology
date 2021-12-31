@@ -14,5 +14,6 @@ Used intellij inspect code to check for:
   * Syntax warnings
   * Declaration warnings
   * Structure warnings
+  ---
   ## Unit testing
   ![unit testing](imgs/unittest.png)
