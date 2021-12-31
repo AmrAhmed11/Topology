@@ -21,4 +21,5 @@ public abstract class Component {
         return type;
     }
     public String getId(){return id;}
+    public abstract Netlist getNet();
 }

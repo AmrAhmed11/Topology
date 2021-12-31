@@ -11,4 +11,9 @@ public class Transistor extends Component {
         super(type,id);
         this.specs = spec;
     }
+
+    @Override
+    public Netlist getNet() {
+        return net;
+    }
 }

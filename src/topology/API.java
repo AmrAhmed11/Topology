@@ -18,7 +18,7 @@ public class API {
     private final ArrayList<Topology> topologylist;
 
     /***
-     *  class constructor to initialize the topologies arraylist
+     *class constructor to initialize the topologies arraylist
      */
     public API(){
         topologylist = new ArrayList<>();
@@ -105,6 +105,27 @@ public class API {
     }
 
     /***
+     * lists the devices connected to a node
+     * @param netlistId the netlist id
+     * @return arraylist of devices
+     */
+    public ArrayList<Component> deviceConnected(String topologyId, String netlistId){
+        ArrayList<Component> result = new ArrayList<>();
+        Topology topology = findTopology(topologyId);
+        if(topology == null){
+            return null;
+        }
+        ArrayList<Component> devices = topology.getComponents();
+        for (Component device:devices) {
+            Netlist netlist = device.getNet();
+            if(netlist.checkNetlist(netlistId)){
+                result.add(device);
+            }
+        }
+        return result;
+    }
+
+    /***
      *creates topology from a JSON string
      * @param fileContent the string to JSONIFY
      * @return topology object
@@ -124,3 +145,4 @@ public class API {
         return gson.toJson(topology);
     }
 }
+//https://amrahmed11.github.io/Topology/JavaDoc/topology/package-summary.html

@@ -13,4 +13,8 @@ public class Resistor extends Component {
         super(type,id);
         this.specs = spec;
     }
+
+    public Netlist getNet() {
+        return net;
+    }
 }

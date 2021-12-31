@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 class APITest {
     @Test
-    void shouldReadJSON() {
+     void shouldReadJSON() {
         API TestAPI = new API();
         Assertions.assertTrue(TestAPI.readJSON("test.json"));
         Assertions.assertFalse(TestAPI.readJSON("FalseTest.json"));
@@ -64,5 +64,12 @@ class APITest {
         Assertions.assertTrue(TestAPI.queryTopologies().isEmpty());
         TestAPI.readJSON("test.json");
         Assertions.assertEquals(1,TestAPI.queryTopologies().size());
+    }
+    @Test
+    void shouldDeviceConnected(){
+        API TestAPI = new API();
+        Assertions.assertNull(TestAPI.deviceConnected("test","vdd"));
+        TestAPI.readJSON("test.json");
+        Assertions.assertEquals(1,TestAPI.deviceConnected("test","vdd").size());
     }
 }
