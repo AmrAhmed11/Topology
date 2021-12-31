@@ -1,6 +1,6 @@
-package Topology;
-import Topology.adapters.JsonSubtype;
-import Topology.adapters.JsonType;
+package topology;
+import topology.adapters.JsonSubtype;
+import topology.adapters.JsonType;
 
 @JsonType(
         property = "type",

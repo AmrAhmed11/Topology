@@ -1,6 +1,6 @@
-package Topology;
+package topology;
 
-import Topology.adapters.PolymorphDeserializer;
+import topology.adapters.PolymorphDeserializer;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class API {
-    ArrayList<Topology> topologylist;
+    private final ArrayList<Topology> topologylist;
 
     API(){
         topologylist = new ArrayList();

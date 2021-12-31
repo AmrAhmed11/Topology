@@ -1,4 +1,4 @@
-package Topology.adapters;
+package topology.adapters;
 
 public @interface JsonSubtype {
     Class<?> clazz();

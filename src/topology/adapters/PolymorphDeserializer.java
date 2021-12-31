@@ -1,4 +1,4 @@
-package Topology.adapters;
+package topology.adapters;
 
 import com.google.gson.JsonDeserializationContext;
 import com.google.gson.JsonDeserializer;

@@ -1,4 +1,4 @@
-package Topology.adapters;
+package topology.adapters;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

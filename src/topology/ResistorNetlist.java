@@ -1,4 +1,4 @@
-package Topology;
+package topology;
 
 public class ResistorNetlist {
     String t1;

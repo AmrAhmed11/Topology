@@ -1,12 +1,12 @@
-package Topology;
+package topology;
 
 import com.google.gson.annotations.SerializedName;
 
 public class Specifications {
     @SerializedName(value="default")
-    private float defaultValue;
-    private float min;
-    private float max;
+    private final float defaultValue;
+    private final float min;
+    private final float max;
 
     Specifications(float defaultValue,float min,float max){
         this.defaultValue=defaultValue;

@@ -1,9 +1,9 @@
-package Topology;
+package topology;
 
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class main {
+public class Test {
     ArrayList<Topology> topologyList;
     public static void main(String[] args) throws IOException {
         API api = new API();
@@ -17,7 +17,6 @@ public class main {
         api.writeJSON("top3","top3.json");
         ArrayList<Topology> topologies = api.queryTopologies();
         api.deleteTopology("top2");
-        topologies = api.queryTopologies();
         ArrayList<Component> Devices = api.queryDevices("top");
         api.deleteTopology("top3");
         api.deleteTopology("top");
