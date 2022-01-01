@@ -26,7 +26,7 @@ Used intellij inspect code to check for:
 
 ## Unit testing
 
-![unit testing](imgs/unittest.png)
+![unit testing](images/unittest.png)
 
 ---
 
